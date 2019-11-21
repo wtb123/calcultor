@@ -36,16 +36,18 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    $menuItems = [
-        ['label'=>'文章管理','url'=>['/post/index']],
-        ['label'=>'评论管理','url'=>['/comment/index']],
-        '<li><span class="badge badge-inverse">'.Comment::getPengdingCommentCount().'</span></li>',
-        ['label'=>'用户管理','url'=>['/user/index']],
-        ['label'=>'管理员','url'=>['/adminuser/index']],
-    ];
+
     if (Yii::$app->user->isGuest) {
+        $menuItems[] = ['label' => '首页', 'url' => ['/site/index']];
         $menuItems[] = ['label' => '登陆', 'url' => ['/site/login']];
     } else {
+        $menuItems = [
+            ['label'=>'文章管理','url'=>['/post/index']],
+            ['label'=>'评论管理','url'=>['/comment/index']],
+            '<li><span class="badge badge-inverse">'.Comment::getPengdingCommentCount().'</span></li>',
+            ['label'=>'用户管理','url'=>['/user/index']],
+            ['label'=>'管理员','url'=>['/adminuser/index']],
+        ];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
