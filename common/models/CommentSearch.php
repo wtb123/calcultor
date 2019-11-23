@@ -47,6 +47,7 @@ class CommentSearch extends Comment
     {
         $query = Comment::find();
 
+
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
@@ -77,7 +78,7 @@ class CommentSearch extends Comment
         /**
          * 待修改bug
          */
-        $query->join('INNER JOIN','user','comment.userId=user.id');
+       /* $query->join('INNER JOIN','user','comment.userId=user.id');
         $query->andFilterWhere(['like','user.username',$this->getAttribute('user.username')]);
 
         $dataProvider->sort->attributes['user.username']=[
@@ -85,7 +86,7 @@ class CommentSearch extends Comment
           'asc'=>['user.username'=>SORT_ASC],
           'desc'=>['user.username'=>SORT_DESC],
         ];
-
+*/
         return $dataProvider;
     }
 }

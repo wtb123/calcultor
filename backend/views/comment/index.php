@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
            // 'status',
            [
              'attribute'=>'status',
-             'value'=>'status0.name',
+             'value'=>'status0.name',  //$model->status0->name
              'filter'=>Commentstatus::find()
                 ->select(['name','id'])
                 ->from('commentstatus')
