@@ -127,15 +127,24 @@ public static function updateFrequency($oldTags,$newTags)
         self::removeTags(array_values(array_diff($oldTagsArray,$newTagsArray)));
     }
 }
+
+    /**
+     * @param int $limit
+     * @return array
+     * 获得五个档次的标签数组
+     */
 public static function findTagWeights($limit=20)
 {
+    //把标签分为五个档次
     $tag_size_level=5;
 
+    //由标签出现次数多到少取出标签，默认20个
     $models=Tag::find()->orderBy('frequency desc')
         ->limit($limit)
         ->all();
     $total=Tag::find()->limit($limit)->count();
 
+    //计算每一档次该有多少个标签：(标签总数/档次数)向上取整
     $stepper=ceil($total/$tag_size_level);
 
     $tags=array();
@@ -150,6 +159,7 @@ public static function findTagWeights($limit=20)
         }
         ksort($tags);
     }
-    return $tags;
+
+   return $tags;
 }
 }

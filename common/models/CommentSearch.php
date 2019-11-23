@@ -77,7 +77,7 @@ class CommentSearch extends Comment
         /**
          * 待修改bug
          */
-       $query->join('INNER JOIN','user','comment.userId=user.id');
+        $query->join('INNER JOIN','user','comment.userId=user.id');
         $query->andFilterWhere(['like','user.username',$this->getAttribute('user.username')]);
 
         $dataProvider->sort->attributes['user.username']=[

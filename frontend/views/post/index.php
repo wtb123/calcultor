@@ -36,10 +36,12 @@ use frontend\components\RctReplyWidget;
         </div>
 
         <div class="col-md-3">
+
+            <!--搜索框-->
            <div class="searchbox">
                <ul class="list-group">
-                   <li class="list-group-item>
-                <span class="glyphicon glyphicon-search"  aria-hidden="true"></span>查找文章
+                   <li class="list-group-item">
+                  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>查找文章
                    <?php
                    /*数据缓存代码示例
                   $data=Yii::$app->cache->get('postCount');
@@ -56,20 +58,19 @@ use frontend\components\RctReplyWidget;
                    <li class="list-group-item">
                        <form class="form-inline" action="index.php?r=post/index" id="w0" method="get">
                            <div class="form-group">
-                               <input type="text" class="form-control" name="PostFrontSearch[title]" id="w0input" placeholder="按标题">
+                               <input type="text" class="form-control" name="PostSearch[title]" id="w0input" placeholder="按标题">
                            </div>
                            <button type="submit" class="btn btn-default">搜索</button>
                        </form>
-
                    </li>
                </ul>
            </div>
 
-
+            <!--标签云-->
                 <div class="tagcloudbox">
                     <ul class="list-group">
-                        <li class="list-group-item>
-                <span class="glyphicon glyphicon-search"  aria-hidden="true"></span>标签云
+                        <li class="list-group-item">
+                <span class="glyphicon glyphicon-tags"  aria-hidden="true"></span>标签云
                         </li>
                         <li class="list-group-item">
                             <?= TagCloudWidget::widget(['tags'=>$tags])?>
@@ -78,10 +79,11 @@ use frontend\components\RctReplyWidget;
                 </div>
 
 
+                 <!--最新回复-->
                     <div class="commentbox">
                         <ul class="list-group">
-                            <li class="list-group-item>
-                <span class="glyphicon glyphicon-search"  aria-hidden="true"></span>
+                            <li class="list-group-item">
+                <span class="glyphicon glyphicon-comment"  aria-hidden="true"></span>
                             最新回复
                             </li>
                             <li class="list-group-item">
@@ -89,6 +91,7 @@ use frontend\components\RctReplyWidget;
                             </li>
                         </ul>
                     </div>
+
         </div>
     </div>
 </div>

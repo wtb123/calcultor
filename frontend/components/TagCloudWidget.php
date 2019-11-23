@@ -15,7 +15,7 @@ class TagCloudWidget extends Widget
 
     public function run()
     {
-        $tagString='';
+        $tagString='';    //保存渲染结果
         $fontStyle=array(
             "6"=>"danger",
             "5"=>"info",
@@ -26,10 +26,10 @@ class TagCloudWidget extends Widget
 
         foreach ($this->tags as $tag=>$weight)
         {
-            $tagString.='<a href="'.Yii::$app->homeUrl.'?r=post/index&PostSearch[tags]'.
-                $tag.'">'.
-                ' <h'.$weight.' style="display:inline-block;"><span class="label label-'.
-                $fontStyle[$weight].'">'.$tag.'</span></h'.$weight.'></a>';
+            $url = Yii::$app->urlManager->createUrl(['post/index','PostSearch[tags]'=>$tag]);
+            $tagString.='<a href="'.$url.'">'.
+                ' <h'.$weight.' style="display:inline-block;"><span class="label label-'
+                .$fontStyle[$weight].'">'.$tag.'</span></h'.$weight.'></a>';
         }
         return $tagString;
     }
