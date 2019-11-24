@@ -42,6 +42,7 @@ class PostController extends Controller
         $tags=Tag::findTagWeights();
         $recentComments=Comment::findRecentComments();
 
+
         $searchModel = new PostSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -141,10 +142,10 @@ class PostController extends Controller
         $tags=Tag::findTagWeights();
         $recentComments=Comment::findRecentComments();
 
-        $userMe=User::findOne(Yii::$app->user->id);
+        $userMe=User::findOne(Yii::$app->user->identity->id);
         $commentModel=new Comment();
-      //  $commentModel->email=$userMe->email;
-       // $commentModel->userId=$userMe->id;
+        $commentModel->email=$userMe->email;
+        $commentModel->userId=$userMe->id;
 
         //step2.当评论提交时，处理评论
         if($commentModel->load(Yii::$app->request->post()))

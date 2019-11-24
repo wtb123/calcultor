@@ -19,6 +19,7 @@ class RctReplyWidget extends Widget
 
         foreach ($this->recentComments as $comment)
         {
+
             $commentString.='<div class="post">'.
                 '<div class="title">'.
                 '<p style="color:#777777;font-style:italic;">'.
