@@ -1,3 +1,8 @@
+<h1>这是一个用yii2搭建的个人博客。<h1/>
+前台实现了：
+展示文章、展示标签、展示最新回复、搜索文章、发表评论等功能；
+后台实现了：
+文章、前台用户、系统管理员管理，评论审核等功能。  
 <p align="center">
     <a href="https://github.com/yiisoft" target="_blank">
         <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
